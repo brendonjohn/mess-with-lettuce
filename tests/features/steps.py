@@ -12,10 +12,10 @@ def have_the_number(step, nth, suffix):
 
 @step("I calculate the nth fibonacci number")
 def calculate_nth_fibonacci(step):
-    world.nth_fibonacci = nth_fibonacci_number(world.nth)
+    world.nth_fibonacci = nth_fibonacci_number(int(world.nth))
 
 
 @step("I obtain the number (\d+)")
 def check_returned_number(step, expected):
-    assert world.nth_fibonacci == expected, \
-        "Got: %d" % world.nth_fibonacci
+    assert world.nth_fibonacci == int(expected), \
+        "Got: %d, \nExpected: %s" % (world.nth_fibonacci, expected)
